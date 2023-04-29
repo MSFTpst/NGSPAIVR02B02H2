@@ -1,0 +1,6 @@
+Check sut.ini
+[For Accelerator QAT Domain]
+Run C:\DPG_Automation\framework\dtaf.content\src\accelerator\gnr\precondition_setup
+{Go to C:\DPG_Automation\framework\dtaf.content\src\accelerator\gnr\coval_tests}
+Run QAT_driver_Installation
+QAT_Linux_Status_Check
