@@ -4,3 +4,4 @@ Run C:\DPG_Automation\framework\dtaf.content\src\accelerator\gnr\precondition_se
 {Go to C:\DPG_Automation\framework\dtaf.content\src\accelerator\gnr\coval_tests}
 Run QAT_driver_Installation
 QAT_Linux_Status_Check
+QAT_Linux_Signs_of_Life
