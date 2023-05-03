@@ -1,0 +1,18 @@
+QAT_SRIOV_with_Guest_VM.py
+
+[Problem]
+<NGSPAIVR02B02H2> execute_shell_cmd_asynch [/usr/libexec/qemu-kvm -name vm -machine q35 -accel kvm -m 10240 -cpu host -drive format=raw,file=/home/vm.qcow2 -bios /home/OVMF.fd -smp 4 -monitor pty -net nic,model=virtio -nic user,hostfwd=tcp::2222-:22 -nographic -device vfio-pci,host=0000:6b:00.1 ] timeout[6000] cwd[None]
+Executing command screen -dmS fabric bash -c '/usr/libexec/qemu-kvm -name vm -machine q35 -accel kvm -m 10240 -cpu host -drive format=raw,file=/home/vm.qcow2 -bios /home/OVMF.fd -smp 4 -monitor pty -net nic,model=virtio -nic user,hostfwd=tcp::2222-:22 -nographic -device vfio-pci,host=0000:6b:00.1 '
+execute shell command async failed. exit code is[127]
+stderr is: bash: screen: command not found
+
+[Reason]
+* This means the "preconsition_setup.py" didn't execute [ Step 8 start: deploy img file to sut /home/BKCPkg/domains/accelerator/imgs ]
+1. The system didn't download the image of gnr-bkc-centos-stream-8-coreserver-5.5-16.img.xz from CENTOS_IMG_LINK,https://ubit-artifactory-or.intel.com/artifactory/linuxbkc-or-local/linux-stack-bkc-gnr/2023ww12/internal-images/gnr-bkc-centos-stream-8-coreserver-5.5-16.img.xz
+[Resolve]
+1. mkdir -p /home/BKCPkg/domains/accelerator/imgs
+2. wget https://ubit-artifactory-or.intel.com/artifactory/linuxbkc-or-local/linux-stack-bkc/2022ww37/internal-images/spr-bkc-pc-centos-stream-8-coreserver-11.5.13.img.xz
+3. xz -d spr-bkc-pc-centos-stream-8-coreserver-11.5.13.img.xz
+4. \mv spr-bkc-pc-centos-stream-8-coreserver-11.5.13.img centos.img
+5. virt-customize -a centos.img --root-password password:password
+6. \cp centos.img centos.qcow2
