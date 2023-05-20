@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sut[
     <!ENTITY sut_ip "10.89.92.241">
-    <!ENTITY sut_password "password">
+    <!ENTITY sut_password "Xpiv@1234">
     <!ENTITY bmc_ip "10.89.89.54">
     <!ENTITY bmc_user "root">
     <!ENTITY bmc_password "calvin">
