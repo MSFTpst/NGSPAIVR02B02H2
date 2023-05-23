@@ -1,0 +1,2 @@
+This command can check which funtions exist on the CPU #lscpu
+To confirme QAT driver whether exist on the system #lspci | grep 4940
