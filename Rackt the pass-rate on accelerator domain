@@ -14,5 +14,5 @@ stderr is: bash: screen: command not found
 2. wget https://ubit-artifactory-or.intel.com/artifactory/linuxbkc-or-local/linux-stack-bkc/2022ww37/internal-images/spr-bkc-pc-centos-stream-8-coreserver-11.5.13.img.xz
 3. xz -d spr-bkc-pc-centos-stream-8-coreserver-11.5.13.img.xz
 4. \mv spr-bkc-pc-centos-stream-8-coreserver-11.5.13.img centos.img
-5. virt-customize -a centos.img --root-password password:password
+5. virt-customize -a centos.img --root-password password:password  # SUT Provisioning : sudo yum install libguestfs-tools
 6. \cp centos.img centos.qcow2
