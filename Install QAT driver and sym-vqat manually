@@ -1,0 +1,17 @@
+cd /home/BKCPkg/domains/accelerator/QAT/
+unzip qat20.l.0.9.9-00019.zip
+tar -zxvf QAT20.L.0.9.9-00019.tar.gz
+./configure --enable-icp-sriov=host
+make install
+make samples-install
+[Below is the method to confirm if the QAT driver is already installed]
+lsmod | grep qat 
+service qat_service status
+lscpu
+[]
+sed -i "s/NumberAdis = 0/NumberAdis = 16/g" /etc/4xxx_dev0.conf
+sed -i "s/NumberAdis = 0/NumberAdis = 16/g" /etc/4xxx_dev1.conf
+service qat_service stop
+service qat_service start
+./build/vqat_ctl show
+./build/vqat_ctl create 0000:6b:00.0 sym
