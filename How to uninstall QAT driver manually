@@ -1,5 +1,6 @@
 cd /home/BKCPkg/domains/accelerator/QAT/
 ls -al Makefile
 make uninstall
+make clean
 This command can check which funtions exist on the CPU #lscpu
 To confirme QAT driver whether exist on the system #lspci | grep 4940
